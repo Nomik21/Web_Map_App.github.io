@@ -698,6 +698,10 @@ function initMap() {
     }
   });
 
+  setTimeout(() => {
+  map.invalidateSize();
+}, 500);
+
   // Return map object if needed externally
   return map;
 }
