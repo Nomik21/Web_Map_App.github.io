@@ -1,0 +1,88 @@
+#map {
+  height: 100vh;
+}
+
+#TitleSidebar {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 19px !important;
+   color: #707070 !important;
+}
+
+#sidebutton {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px !important;
+  color: #707070 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#intro_text{
+  margin-top: 1rem;
+}
+
+#side_bottom{
+  margin-bottom: 1rem;
+}
+
+#no-legend-message{
+  margin-bottom: 0.5rem;
+}
+
+.sidecontent{
+  padding: 0.2rem 0.2rem;
+}
+
+
+details > summary {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: 600;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+details[open] > summary {
+  background-color: #e5e7eb;
+}
+
+details > div {
+  padding: 0.5rem 1rem;
+}
+
+.legend
+{
+    width:100%;
+    border-collapse: collapse;
+}
+
+.legend td
+{
+    color: #1f2937;
+    font-size:12px;
+    vertical-align: middle;
+}
+
+.legend_cb
+{
+    width:20px;
+}
+
+.legend_img img
+{
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin: auto;
+	
+}
+.legend_title
+{
+  text-align: center;
+  font-weight: 500;
+  font-family: sans-serif;
+}
+
+#andros-l-scale-legend {
+  max-height: 250px;
+  overflow-y: auto;
+}

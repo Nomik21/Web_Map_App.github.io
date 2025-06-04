@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Map App Andros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- jQuery & jQuery UI for accordion -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css"
+    />
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Leaflet.GraphicScale plugin -->
+    <script src="https://unpkg.com/leaflet-graphicscale/dist/Leaflet.GraphicScale.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-graphicscale/dist/Leaflet.GraphicScale.min.css"
+    />
+
+    <!-- Leaflet.Coordinates plugin -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/MrMufflon/Leaflet.Coordinates/dist/Leaflet.Coordinates-0.1.5.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/MrMufflon/Leaflet.Coordinates/dist/Leaflet.Coordinates-0.1.5.min.js"></script>
+
+    <!-- Leaflet MiniMap -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.css"
+    />
+    <script src="https://unpkg.com/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.js"></script>
+
+    <!-- Leaflet Fullscreen -->
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css"
+    />
+    <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"></script>
+
+    <!-- Leaflet.Polyline Measure plugin -->
+    <link
+      rel="stylesheet"
+      href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css"
+    />
+    <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
+
+    <!-- Leaflet.Polyline Locate plugin -->
+
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css"
+    />
+
+    <script
+      src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js"
+      charset="utf-8"
+    ></script>
+
+    <!-- Leaflet Control Geocoder -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <!-- Leaflet Esri Plugin -->
+    <script src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js"></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="flex flex-col md:flex-row h-screen overflow-hidden">
+
+
+    <!-- Sidebar -->
+   <aside id="sidebar" class="w-80 bg-white shadow-lg overflow-y-auto p-4 flex flex-col justify-between h-full">
+    <div>
+      <h1 id="TitleSidebar" class="text-xl font-bold mb-4">Web Map App of Andros Island</h1>
+
+    <section class="mb-1">
+      <details>
+         <summary id="sidebutton" class="text-base font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition-all duration-200 cursor-pointer">Introduction</summary>
+         <div id="Intro" class="sidecontent">
+
+          <p class="text-sm text-gray-700">Welcome to the <b>Web GIS Application of Andros Island</b>.</p> 
+          <b></b>
+          <p id="intro_text" class="text-sm text-gray-700">This platform provides interactive access to a wide range of spatial data and thematic maps related to the island such as:</p>
+          <ul class="list-none list-inside text-sm text-gray-600 mt-2 space-y-1">
+            <li>Land Cover of Andros Island with Shaded Relief (Scale 1:150,000)</li>
+            <hr style="width:100%;text-align:center;margin-left:0">
+            <li>Settlements and Road Network of Andros Island (Scale 1:150,000)</li>
+            <hr style="width:100%;text-align:center;margin-left:0">
+            <li>Points of interest in the settlement of Mpatsi (Scale 1:5,000)</li>
+            <hr style="width:100%;text-align:center;margin-left:0">
+            <li>Soil Map (Ministry of Environment and Energy)</li>
+            <hr style="width:100%;text-align:center;margin-left:0">
+            <li>Elevation Map (Ministry of Environment and Energy)</li>
+            <hr style="width:100%;text-align:center;margin-left:0">
+            <li>Forests – Dominant Vegetation Type Map (Ministry of Environment and Energy)</li>
+            <hr style="width:100%;text-align:center;margin-left:0">
+            <li style="width:100%;text-align:center;margin-left:0">Projection and Spatial Reference Details</li>
+            <li style="width:100%;text-align:center;margin-left:0"> Tranverse Mercator Projection</li>
+            <li style="width:100%;text-align:center;margin-left:0"> CGRS 1987 Reference System</li>
+          </ul>
+
+        </div>
+      </details>
+
+      <details>
+        <summary id="sidebutton" class="text-base font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition-all duration-200 cursor-pointer">General Information</summary>
+        <div id="Intro" class="sidecontent">
+          <p class="text-sm text-gray-700 text-justify mt-2"> 
+            Andros (Greek: Άνδρος, pronounced [ˈanðros]) is the northernmost island of the Greek Cyclades archipelago, about 10 km (6 mi) southeast of Euboea, and about 3 km (2 mi) north of Tinos. It is nearly 40 km (25 mi) long, and its greatest breadth is 16 km (10 mi). It is for the most part mountainous, with many fruitful and well-watered valleys.The municipality, which includes the island Andros and several small, uninhabited islands, has an area of 380 km2 (146.719 sq mi).The largest towns are Andros (town), Gavrio, Batsi, and Ormos Korthiou.
+          </p>
+          <img src="img\Location_Diagram.png" alt="Andros Island" class="mt-3 w-40 mx-auto rounded shadow-md" />
+          <a href="https://visitgreece.gr/islands/cyclades/andros/" 
+            class="block text-center text-gray-600 underline mt-2 hover:text-blue-800 transition">
+            Learn more about Andros
+           </a>
+        </div>
+      </details>
+
+
+      <details id="legend-section">
+        <summary id="sidebutton" class="text-base font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition-all duration-200 cursor-pointer">Legend</summary>
+        <div id="Intro" class="sidecontent">
+          <div id="no-legend-message" class="text-gray-600 text-sm mt-2">
+            Currently no legend available. Please select a layer which has a
+            legend associated with it.
+          </div>
+          <!-- Dynamic Legend for Soil Map inside Legend section -->
+          <div id="soil-legend" class="p-2" style="display: none">
+            <h4 class="font-semibold">Soil Map Legend</h4>
+            <img
+              src="http://mapsportal.ypen.gr/geoserver/ows?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=geonode:edafmap_1997"
+              alt="Soil Legend"
+            />
+          </div>
+
+          <!-- Dynamic Legend for Hypsometric Map -->
+          <div id="hypsometric-legend" class="p-2" style="display: none">
+            <h4 class="font-semibold">Hypsometric Zones Map Legend</h4>
+            <img
+              src="http://mapsportal.ypen.gr/geoserver/ows?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=geonode:hypsometriczonemap"
+              alt="Hypsometric Legend"
+            />
+          </div>
+
+          <!-- Dynamic Legend for DLT Map -->
+          <div id="dlt-legend" class="p-2" style="display: none">
+            <h4 class="font-semibold">Forests Main Type of Vegetation</h4>
+            <img
+              src="http://mapsportal.ypen.gr/geoserver/ows?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=geonode:dlt_2015_020m_d04"
+              alt="DLT Legend"
+            />
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary id="sidebutton" class="text-base font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition-all duration-200 cursor-pointer">Author </summary>
+        <div>
+          <p class="text-sm text-gray-700 text-justify">
+             The developer of this app is Nomikos Nikolaos, a Geoinformatics Engineer (M.Eng., B.Eng.) and Army Officer with a strong academic
+            and operational background in Deep Learning, Remote Sensing, and Computer Vision. He currently serves at the Hellenic National 
+            Defence General Staff (VI Branch – Transformation, Innovation, and Defense Technology), contributing to projects that integrate
+            geospatial intelligence with advanced AI technologies to support national defense strategies.          
+          </p>
+          <div class="mt-3 text-center">
+            <a href="https://www.linkedin.com/in/nikolaos-nomikos-699419206/" target="_blank" class="text-gray-600 hover:underline flex items-center justify-center space-x-2">
+              <i class="fa fa-linkedin-square" aria-hidden="true">
+              </i>
+              <span>
+                LinkedIn Profile
+              </span>
+            </a>
+            <a href="https://nomik21.github.io/" target="_blank" class="text-gray-600 hover:underline flex items-center justify-center space-x-2 mt-1">
+              <i class="fa fa-github" aria-hidden="true">
+              </i>
+              <span>GitHub Profile
+              </span>
+            </a>
+          </div>
+        </div>
+      </details>
+      </div>
+
+
+      <div id="side_bottom" class="mt-6 border-t pt-4 text-center text-sm text-gray-600">
+        <img src="img\emp.png" alt="University Emblem" class="mx-auto w-20 mb-2" />
+         <p class="font-semibold">National Technical University of Athens</p>
+         <p>MSc in Geoinformatics</p>
+         <p>Processing, Analysis and Visualization of Spatial Data</p>
+         <p class="mt-1 font-semibold">Developed by Nomikos Nikolaos</p>
+      </div>
+   </aside>   
+
+    <!-- Χάρτης -->
+    <main id="map" class="flex-1"></main>
+
+    <!-- Εξωτερικό αρχείο JavaScript -->
+     <script src="js/beacons.js"></script>
+     <script src="js/landuse.js"></script>
+    <script src="js/geo_functions.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
