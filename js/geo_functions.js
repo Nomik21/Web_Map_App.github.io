@@ -97,7 +97,7 @@ function initMap() {
   );
 
   const andros_L_Scale = L.tileLayer.wms(
-    "http://atlas.geocenter.survey.ntua.gr:8080/geoserver/wms",
+    "https://geoserver-proxy.onrender.com/geoserver/wms",
     {
       layers: "w_nomikos:Andros_L_Scale",
       format: "image/png",
@@ -108,7 +108,7 @@ function initMap() {
   );
 
   const andros_S_Scale = L.tileLayer.wms(
-    "http://atlas.geocenter.survey.ntua.gr:8080/geoserver/wms",
+    "https://geoserver-proxy.onrender.com/geoserver/wms",
     {
       layers: "w_nomikos:Andros_Small_Scale",
       format: "image/png",
@@ -119,7 +119,7 @@ function initMap() {
   );
 
   const andros_landuse = L.tileLayer.wms(
-    "http://atlas.geocenter.survey.ntua.gr:8080/geoserver/wms",
+    "https://geoserver-proxy.onrender.com/geoserver/wms",
     {
       layers: "w_nomikos:Andros_Land_Use_Hill",
       format: "image/png",
@@ -130,7 +130,7 @@ function initMap() {
   );
 
   const annotations_ = L.tileLayer.wms(
-    "http://atlas.geocenter.survey.ntua.gr:8080/geoserver/wms",
+    "https://geoserver-proxy.onrender.com/geoserver/wms",
     {
       layers: "w_nomikos:Annotations_Andros",
       format: "image/png",
