@@ -6,7 +6,7 @@ body {
 }
 
 #map {
-  height: 50vh; /* πιάνει μισή οθόνη σε κινητό */
+  min-height: 500px;
   width: 100%;
 }
 
