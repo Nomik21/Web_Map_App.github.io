@@ -6,12 +6,13 @@ body {
 }
 
 #map {
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  min-height: 300px;
 }
-
-#map {
-  background-color: red;
+@media (min-width: 768px) {
+  #map {
+    height: 100vh;
+  }
 }
 
 #TitleSidebar {
