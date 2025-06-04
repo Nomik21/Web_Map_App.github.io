@@ -10,6 +10,10 @@ body {
   width: 100%;
 }
 
+#map {
+  background-color: red;
+}
+
 #TitleSidebar {
   font-family: 'Poppins', sans-serif !important;
   font-size: 19px !important;
